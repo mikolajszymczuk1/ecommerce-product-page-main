@@ -1,0 +1,7 @@
+// Utilities
+@use "./fonts";
+
+// Base styles for all project
+body {
+    font-family: fonts.$Kumbh-sans;
+}
