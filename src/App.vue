@@ -10,11 +10,18 @@
 
 <script>
 import NavigationBar from "@/components/NavigationBar";
+import { mapActions } from "vuex";
 
 export default {
     name: "App",
     components: {
         NavigationBar
+    },
+    methods: {
+        ...mapActions([ "loadData" ])
+    },
+    created() {
+        this.loadData();
     }
 }
 </script>
