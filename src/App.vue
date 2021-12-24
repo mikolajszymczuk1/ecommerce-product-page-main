@@ -1,21 +1,28 @@
 <template>
-    <h1>Hello World !!!</h1>
+    <div class="app">
+        <!-- ====== Header ====== -->
+        <header>
+            <NavigationBar />
+        </header>
+        <!-- ====== END Header ====== -->
+    </div>
 </template>
 
 <script>
+import NavigationBar from "@/components/NavigationBar";
+
 export default {
-    name: "App"
+    name: "App",
+    components: {
+        NavigationBar
+    }
 }
 </script>
 
 <style lang="scss" scoped>
-    h1 {
-        padding: 12px;
-
-        background-color: colors.$Orange;
-
-        font-family: fonts.$Kumbh-sans;
-        color: white;
-        text-align: center;
+.app {
+    @media screen and (min-width: 1200px) {
+        margin: 0 10%;
     }
+}
 </style>
