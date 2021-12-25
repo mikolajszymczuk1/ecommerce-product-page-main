@@ -111,6 +111,8 @@ $navigation-change: 768px;
         opacity: 0;
         background-color: rgba(colors.$Black, 0.75);
 
+        z-index: 1;
+
         @media screen and (min-width: $navigation-change) {
             display: block;
             position: static;
