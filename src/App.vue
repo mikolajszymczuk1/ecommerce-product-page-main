@@ -5,17 +5,28 @@
             <NavigationBar />
         </header>
         <!-- ====== END Header ====== -->
+
+        <!-- ====== Main ====== -->
+        <main>
+            <ImageSlider :slider-images="getProductWithId(0).productImages" />
+        </main>
+        <!-- ====== END Main ====== -->
     </div>
 </template>
 
 <script>
 import NavigationBar from "@/components/NavigationBar";
-import { mapActions } from "vuex";
+import ImageSlider from "@/components/ImageSlider";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
     name: "App",
     components: {
-        NavigationBar
+        NavigationBar,
+        ImageSlider
+    },
+    computed: {
+        ...mapGetters(["getProductWithId"])
     },
     methods: {
         ...mapActions([ "loadData" ])
