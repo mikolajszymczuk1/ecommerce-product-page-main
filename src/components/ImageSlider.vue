@@ -106,6 +106,10 @@ export default {
         width: 400px;
     }
 
+    @media screen and (min-width: 1440px) {
+        width: 475px;
+    }
+
     // Main image styles
     &__main-image-container {
         position: relative;
@@ -121,6 +125,10 @@ export default {
 
         @media screen and (min-width: 1024px) {
             border-radius: 20px;
+        }
+
+        @media screen and (min-width: 1440px) {
+            height: 445px;
         }
     }
 
@@ -195,6 +203,13 @@ export default {
     
         @media screen and (min-width: 1024px) {
             margin: 0;
+        }
+
+        @media screen and (min-width: 1440px) {
+            width: 88px;
+            height: 88px;
+
+            border-radius: 10px;
         }
     }
 }
