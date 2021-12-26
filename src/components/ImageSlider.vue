@@ -100,7 +100,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .image-slider {
     @media screen and (min-width: 1024px) {
         width: 400px;
@@ -173,7 +173,7 @@ export default {
         height: auto;
     }
 
-    // Thumnails styles
+    // Thumbnails styles
     &__thumbnails-container {
         display: none;
         justify-content: center;

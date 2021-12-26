@@ -60,7 +60,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 // Width value where navigation bar is changed to pc version
 $navigation-change: 768px;
 
