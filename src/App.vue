@@ -42,9 +42,9 @@
 </template>
 
 <script>
-import NavigationBar from "@/components/NavigationBar";
-import ImageSlider from "@/components/ImageSlider";
-import QuantityCounter from "@/components/QuantityCounter";
+import NavigationBar from "@/components/VNavigationBar";
+import ImageSlider from "@/components/VImageSlider";
+import QuantityCounter from "@/components/VQuantityCounter";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
