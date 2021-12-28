@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import products from "../data";
+import cart from "./modules/cart";
 
 Vue.use(Vuex)
 
@@ -13,7 +14,7 @@ export const getters = {
     getAllProducts: (state) => state.products,
     
     // Return product with product id === id
-    getProductWithId: (state) => (id) => state.products[id]
+    getProductWithId: (state) => (id) => state.products[id],
 }
 
 export const mutations = {
@@ -30,6 +31,10 @@ export const actions = {
 }
 
 export default new Vuex.Store({
+    strict: true,
+    modules: {
+        cart
+    },
     state,
     getters,
     mutations,
