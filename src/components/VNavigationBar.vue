@@ -35,26 +35,41 @@
 
         <div class="navigation-bar__user-icons">
             <!-- Cart icon -->
-            <img class="navigation-bar__cart-icon" src="@/assets/svg/icon-cart.svg" alt="Cart icon" title="Cart icon">
+            <img class="navigation-bar__cart-icon" src="@/assets/svg/icon-cart.svg" alt="Cart icon" title="Cart icon"
+                @click="toggleCart"
+            >
 
             <!-- Avatar icon -->
             <img class="navigation-bar__avatar-image" src="@/assets/images/image-avatar.png" alt="Avatar image" title="Avatar">
         </div>
+
+        <Cart v-if="showCart" />
     </nav>
 </template>
 
 <script>
+import Cart from "@/components/VCart.vue";
+
 export default {
     name: "NavigationBar",
+    components: {
+        Cart
+    },
     data() {
         return {
-            isActive: false
+            isActive: false,
+            showCart: false
         }
     },
     methods: {
         // Activate or deactivate side menu (mobile version)
         toggleMenu() {
             this.isActive = !this.isActive;
+        },
+
+        // Activate ot deactivate cart container
+        toggleCart() {
+            this.showCart = !this.showCart;
         }
     }
 }
@@ -111,7 +126,7 @@ $navigation-change: 768px;
         opacity: 0;
         background-color: rgba(colors.$Black, 0.75);
 
-        z-index: 1;
+        z-index: 2;
 
         @media screen and (min-width: $navigation-change) {
             display: block;
