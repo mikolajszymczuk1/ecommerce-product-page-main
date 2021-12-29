@@ -35,6 +35,7 @@
                         src="@/assets/svg/icon-delete.svg"
                         alt="Delete icon"
                         title="Delete icon"
+                        @click="removeItemFromCart(item)"
                     >
                 </div>
 
@@ -46,7 +47,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
     name: "Cart",
@@ -56,6 +57,11 @@ export default {
             "isCartEmpty": "cart/isEmpty",
             "discountPrice": "cart/discountPrice",
             "totalPriceOfItem": "cart/totalPriceOfItem"
+        })
+    },
+    methods: {
+        ...mapActions({
+            "removeItemFromCart": "cart/removeItemFromCart"
         })
     }
 }

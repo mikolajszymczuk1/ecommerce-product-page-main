@@ -32,6 +32,14 @@ export const mutations = {
         } else {
             state.items.push({ product, quantity: count });
         }
+    },
+
+    // Remove item from cart
+    removeItemFromCart(state, item) {
+        item.quantity--;
+        if (item.quantity === 0) {
+            state.items = state.items.filter((el) => el.product.id != item.product.id)
+        }
     }
 }
 
@@ -39,6 +47,11 @@ export const actions = {
     // Add item to cart action
     addItemToCart(context, product) {
         context.commit("addItemToCart", product);
+    },
+
+    // Remove item from cart
+    removeItemFromCart(context, item) {
+        context.commit("removeItemFromCart", item);
     }
 }
 
