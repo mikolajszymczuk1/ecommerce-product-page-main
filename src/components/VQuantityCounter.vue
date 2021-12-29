@@ -34,6 +34,7 @@ export default {
         // Increment counter
         incrementCounter() {
             this.counter++;
+            this.$emit("counter-change", this.counter);
         },
 
         // Decrement counter
@@ -42,6 +43,8 @@ export default {
             if (this.counter < 0) {
                 this.counter = 0;
             }
+            
+            this.$emit("counter-change", this.counter);
         }
     }
 }
