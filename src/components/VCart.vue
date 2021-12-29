@@ -82,6 +82,23 @@ export default {
 
     z-index: 1;
 
+    @media screen and (min-width: 768px) {
+        left: auto;
+        top: 100px;
+        right: 25px;
+        
+        width: 360px;
+
+        transform: translateX(0);
+
+        z-index: 2;
+    }
+
+    @media screen and (min-width: 1200px) {
+        top: 93px;
+        right: 6.3%;
+    }
+
     &__banner {
         padding: 24px 25px;
 
