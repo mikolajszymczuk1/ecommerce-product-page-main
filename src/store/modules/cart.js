@@ -24,12 +24,13 @@ export const getters = {
 
 export const mutations = {
     // Add item to cart
-    addItemToCart(state, product) {
+    addItemToCart(state, { product, count }) {
+        if (count === 0) return; 
         let existItem = state.items.find((item) => item.product.id === product.id);
         if (existItem) {
-            existItem.quantity++;
+            existItem.quantity += count;
         } else {
-            state.items.push({ product, quantity: 1 });
+            state.items.push({ product, quantity: count });
         }
     }
 }
