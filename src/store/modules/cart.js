@@ -10,6 +10,9 @@ const state = {
 export const getters = {
     // Return true if cart is empty
     isEmpty: (state) => state.items.length === 0,
+
+    // Return quantity of items in the cart
+    quantityOfItems: (state) => state.items.reduce((total, item) => total += item.quantity, 0),
     
     // Return price after discount
     discountPrice: () => (product) => product.price - (product.price * (product.discount / 100)),

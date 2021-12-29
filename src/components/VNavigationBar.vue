@@ -34,10 +34,19 @@
         </div>
 
         <div class="navigation-bar__user-icons">
-            <!-- Cart icon -->
-            <img class="navigation-bar__cart-icon" src="@/assets/svg/icon-cart.svg" alt="Cart icon" title="Cart icon"
+            <div class="navigation-bar__cart-icon-wrapper"
                 @click="toggleCart"
             >
+                <!-- Cart icon -->
+                <img class="navigation-bar__cart-icon" src="@/assets/svg/icon-cart.svg" alt="Cart icon" title="Cart icon">
+
+                <!-- Cart items counter -->
+                <div class="navigation-bar__items-counter"
+                    v-if="quantityOfItems != 0" 
+                >
+                    {{ quantityOfItems }}
+                </div>
+            </div>
 
             <!-- Avatar icon -->
             <img class="navigation-bar__avatar-image" src="@/assets/images/image-avatar.png" alt="Avatar image" title="Avatar">
@@ -49,6 +58,7 @@
 
 <script>
 import Cart from "@/components/VCart.vue";
+import { mapGetters } from "vuex";
 
 export default {
     name: "NavigationBar",
@@ -60,6 +70,9 @@ export default {
             isActive: false,
             showCart: false
         }
+    },
+    computed: {
+        ...mapGetters("cart", ["quantityOfItems"])
     },
     methods: {
         // Activate or deactivate side menu (mobile version)
@@ -251,12 +264,31 @@ $navigation-change: 768px;
         align-items: center;
     }
 
+    &__cart-icon-wrapper {
+        position: relative;
+    }
+
     &__cart-icon {
         margin-right: 20px;
 
         @media screen and (min-width: 850px) {
             margin-right: 45px;
         }
+    }
+
+    &__items-counter {
+        position: absolute;
+        top: -7px;
+        left: 8px;
+
+        padding: 0px 7px;
+
+        border-radius: 10px;
+        background-color: colors.$Orange;
+
+        color: colors.$White;
+        font-size: 0.7em;
+        font-weight: 700;
     }
 
     &__avatar-image {
