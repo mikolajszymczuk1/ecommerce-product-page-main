@@ -20,7 +20,7 @@
                 >
                     <div class="cart__wrapper">
                         <!-- Item short info -->
-                        <div class="cart__item-thumbnail"></div>
+                        <div class="cart__item-thumbnail" :style="{ backgroundImage: `url(${ item.product.images[0].thumbnail })` }"></div>
                         <div class="cart__item-content-wrapper">
                             <h2 class="cart__item-title">{{ item.product.title }}</h2>
                             <div class="cart__item-prices">
@@ -123,6 +123,9 @@ export default {
 
         background-color: colors.$Orange;
         border-radius: 5px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 
     &__item-content-wrapper {
