@@ -189,6 +189,8 @@ export default {
         background-position: center;
     
         @media screen and (min-width: 1440px) {
+            margin: 0 15px;
+            
             width: 90px;
             height: 90px;
         } 
