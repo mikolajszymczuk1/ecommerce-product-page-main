@@ -1,10 +1,18 @@
 <template>
     <!-- Image slider with lightbox future -->
     <div class="image-slider">
+        <LightBox
+            :images="images"
+            :thumbnails="thumbnails"
+            :is-active="lightBoxActive"
+            @close-lightbox="toggleLightBox"
+        />
+
         <!-- Main slider image container -->
         <div class="image-slider__main-image-container">
             <div class="image-slider__main-image"
                 :style="{ backgroundImage: `url(${ getCurrentImage(current) })` }"
+                @click="toggleLightBox"
             ></div>
 
             <!-- Left arrow icon -->
@@ -44,13 +52,20 @@
 </template>
 
 <script>
+import LightBox from "@/components/VLightBox";
+import imageSliderMixin from "@/mixins/imageSliderMixin";
+
 export default {
     name: "ImageSlider",
+    mixins: [imageSliderMixin],
+    components: {
+        LightBox
+    },
     data() {
         return {
             images: [],
             thumbnails: [],
-            current: 0
+            lightBoxActive: false
         }
     },
     props: {
@@ -68,30 +83,9 @@ export default {
             });
         },
 
-        // Return current image url
-        getCurrentImage(current) {
-            return this.images[current];
-        },
-
-        // When user click thumbnail, set current image
-        setCurrentImage(newCurrent) {
-            this.current = newCurrent;
-        },
-
-        // Change to next image
-        nextImage() {
-            this.current++;
-            if (this.current > this.images.length - 1) {
-                this.current = 0;
-            }
-        },
-
-        // Change to previous image
-        previousImage() {
-            this.current--;
-            if (this.current < 0) {
-                this.current = this.images.length - 1;
-            }
+        // Change lightbox active status
+        toggleLightBox() {
+            this.lightBoxActive = !this.lightBoxActive;
         }
     },
     created() {
@@ -124,7 +118,7 @@ export default {
         }
 
         @media screen and (min-width: 1024px) {
-            border-radius: 20px;
+            border-radius: 15px;
         }
 
         @media screen and (min-width: 1440px) {
