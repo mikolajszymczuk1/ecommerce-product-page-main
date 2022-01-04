@@ -69,7 +69,13 @@ export default {
         width: 36%;
     }
 
-    // &__icon {}
+    &__icon {
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
 
     &__value {
         font-weight: 700;

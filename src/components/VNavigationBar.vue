@@ -38,7 +38,7 @@
                 @click="toggleCart"
             >
                 <!-- Cart icon -->
-                <img class="navigation-bar__cart-icon" src="@/assets/svg/icon-cart.svg" alt="Cart icon" title="Cart icon">
+                <svg class="navigation-bar__cart-icon" width="22" height="20" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill-rule="nonzero"/></svg>
 
                 <!-- Cart items counter -->
                 <div class="navigation-bar__items-counter"
@@ -49,7 +49,7 @@
             </div>
 
             <!-- Avatar icon -->
-            <img class="navigation-bar__avatar-image" src="@/assets/images/image-avatar.png" alt="Avatar image" title="Avatar">
+            <div class="navigation-bar__avatar-image" :style="{ backgroundImage: `url(${ 'static/image-avatar.png' })` }"></div>
         </div>
 
         <Cart v-if="showCart" />
@@ -93,6 +93,7 @@ export default {
 $navigation-change: 768px;
 
 .navigation-bar {
+    $self: &;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -266,10 +267,20 @@ $navigation-change: 768px;
 
     &__cart-icon-wrapper {
         position: relative;
+
+        cursor: pointer;
+
+        &:hover #{ $self }__cart-icon {
+            fill: colors.$Black;
+        }
     }
 
     &__cart-icon {
+        display: block;
+
         margin-right: 20px;
+
+        fill: #69707D;
 
         @media screen and (min-width: 850px) {
             margin-right: 45px;
@@ -292,15 +303,42 @@ $navigation-change: 768px;
     }
 
     &__avatar-image {
+        display: block;
+        position: relative;
+
         width: 25px;
-        height: auto;
+        height: 25px;
+
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
 
         @media screen and (min-width: $navigation-change) {
             width: 35px;
+            height: 35px;
         }
 
         @media screen and (min-width: 850px) {
             width: 50px;
+            height: 50px;
+
+            &:hover::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                width: 100%;
+                height: 100%;
+
+                border: solid 2px colors.$Orange;
+                border-radius: 50%;
+                box-sizing: border-box;
+
+                z-index: 1;
+            }
         }
     }
 }

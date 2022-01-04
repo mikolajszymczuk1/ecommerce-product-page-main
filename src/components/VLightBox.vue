@@ -108,7 +108,12 @@ export default {
         width: 22px;
         height: auto;
 
+        cursor: pointer;
         fill: colors.$Light-grayish-blue;
+
+        &:hover {
+            fill: colors.$Orange;
+        }
     }
 
     &__main-image-container {
@@ -144,7 +149,7 @@ export default {
         height: 55px;
 
         border-radius: 50%;
-
+        cursor: pointer;
         background-color: colors.$White;
 
         &--left {
@@ -157,6 +162,10 @@ export default {
             right: 0;
 
             transform: translate(50%, -50%);
+        }
+
+        &:hover {
+            opacity: 0.8;
         }
     }
 
@@ -178,11 +187,14 @@ export default {
     }
 
     &__thumbnail {
+        position: relative;
+
         margin: 0 12px;
 
         width: 80px;
         height: 80px;
 
+        cursor: pointer;
         border-radius: 10px;
         background-repeat: no-repeat;
         background-size: cover;
@@ -193,7 +205,30 @@ export default {
             
             width: 90px;
             height: 90px;
-        } 
+        }
+
+        &:hover {
+            opacity: 0.5;
+        }
+
+        &--active::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            box-sizing: border-box;
+            background-color: rgba(colors.$White, 0.6);
+            border-radius: 15px;
+            border: solid 2px colors.$Orange;
+
+            @media screen and (min-width: 1440px) {
+                border-radius: 10px;
+            }
+        }
     }
 }
 </style>

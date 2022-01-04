@@ -185,11 +185,14 @@ export default {
     }
 
     &__thumbnail {
+        position: relative;
+
         margin: 0 25px;
 
         width: 80px;
         height: 80px;
 
+        cursor: pointer;
         border-radius: 15px;
         background-repeat: no-repeat;
         background-size: cover;
@@ -204,6 +207,29 @@ export default {
             height: 88px;
 
             border-radius: 10px;
+        }
+
+        &:hover {
+            opacity: 0.5;
+        }
+
+        &--active::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            box-sizing: border-box;
+            background-color: rgba(colors.$White, 0.6);
+            border-radius: 15px;
+            border: solid 2px colors.$Orange;
+
+            @media screen and (min-width: 1440px) {
+                border-radius: 10px;
+            }
         }
     }
 }

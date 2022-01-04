@@ -248,10 +248,13 @@ export default {
 
         width: 100%;
 
+        cursor: pointer;
         background-color: colors.$Orange;
         border: 0;
         border-radius: 10px;
         outline: none;
+        transition: opacity 100ms ease-out;
+        box-shadow: 0 15px 25px rgba(colors.$Orange, 0.3);
 
         font-family: fonts.$Kumbh-sans;
         color: colors.$White;
@@ -266,6 +269,10 @@ export default {
 
         @media screen and (min-width: 1440px) {
             width: 64%;
+        }
+
+        &:hover {
+            opacity: 0.6;
         }
     }
 
