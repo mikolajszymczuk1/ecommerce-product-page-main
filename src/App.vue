@@ -13,7 +13,7 @@
             <!-- Product details container -->
             <section class="product-details">
                 <h1 class="product-details__company-name">SNEAKER COMPANY</h1>
-                <h2 class="product-details__product-title">{{ product.title }}</h2>
+                <h2 class="product-details__product-title">{{ product.name }}</h2>
                 <p class="product-details__product-description">{{ product.description }}</p>
 
                 <div class="product-details__prices-container">
@@ -60,7 +60,7 @@ export default {
         return {
             product: {
                 id: 0,
-                title: "",
+                name: "",
                 description: "",
                 price: 0,
                 discount: 0,
@@ -80,11 +80,11 @@ export default {
         // Load update component product data
         updateComponentProductData(data) {
             this.product.id = data.id;
-            this.product.title = data.name;
+            this.product.name = data.name;
             this.product.description = data.description;
             this.product.price = data.price;
             this.product.discount = data.discount;
-            this.product.images = data.productImages;
+            this.product.images = data.images;
         },
 
         // Set new value of product count (quantity)

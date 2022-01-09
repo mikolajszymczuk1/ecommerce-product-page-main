@@ -22,7 +22,7 @@
                         <!-- Item short info -->
                         <div class="cart__item-thumbnail" :style="{ backgroundImage: `url(${ item.product.images[0].thumbnail })` }"></div>
                         <div class="cart__item-content-wrapper">
-                            <h2 class="cart__item-title">{{ item.product.title }}</h2>
+                            <h2 class="cart__item-title">{{ item.product.name }}</h2>
                             <div class="cart__item-prices">
                                 ${{ discountPrice(item.product) }} x {{ item.quantity }}
                                 <span class="cart__total-item-price">${{ totalPriceOfItem(item.product.id) }}</span>
