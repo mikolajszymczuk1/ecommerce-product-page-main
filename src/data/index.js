@@ -2,7 +2,7 @@
 const products = [
     {
         id: 0,
-        productImages: [
+        images: [
             {
                 image: "static/image-product-1.jpg",
                 thumbnail: "static/image-product-1-thumbnail.jpg"
