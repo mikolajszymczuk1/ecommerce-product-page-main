@@ -11,13 +11,13 @@
         <!-- Main slider image container -->
         <div class="image-slider__main-image-container">
             <div class="image-slider__main-image"
-                :style="{ backgroundImage: `url(${ getCurrentImage(current) })` }"
+                :style="{ backgroundImage: `url(${ getCurrentImage(images) })` }"
                 @click="toggleLightBox"
             ></div>
 
             <!-- Left arrow icon -->
             <div class="image-slider__arrow-icon-wrapper image-slider__arrow-icon-wrapper--left"
-                @click="previousImage()"
+                @click="previousImage(images)"
             >
                 <img class="image-slider__arrow-icon" 
                     src="@/assets/svg/icon-previous.svg" 
@@ -28,7 +28,7 @@
 
             <!-- Right arrow icon -->
             <div class="image-slider__arrow-icon-wrapper image-slider__arrow-icon-wrapper--right"
-                @click="nextImage()"
+                @click="nextImage(images)"
             >
                 <img class="image-slider__arrow-icon"
                     src="@/assets/svg/icon-next.svg"

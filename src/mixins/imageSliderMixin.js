@@ -7,8 +7,8 @@ export default {
     },
     methods: {
         // Return current image url
-        getCurrentImage(current) {
-            return this.images[current];
+        getCurrentImage(images) {
+            return images[this.current];
         },
 
         // When user click thumbnail, set current image
@@ -17,18 +17,18 @@ export default {
         },
 
         // Change to next image
-        nextImage() {
+        nextImage(images) {
             this.current++;
-            if (this.current > this.images.length - 1) {
+            if (this.current > images.length - 1) {
                 this.current = 0;
             }
         },
 
         // Change to previous image
-        previousImage() {
+        previousImage(images) {
             this.current--;
             if (this.current < 0) {
-                this.current = this.images.length - 1;
+                this.current = images.length - 1;
             }
         }
     }
