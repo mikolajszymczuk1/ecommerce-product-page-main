@@ -3,6 +3,7 @@
     <div class="quantity-counter">
         <!-- Minus icon -->
         <img class="quantity-counter__icon"
+            data-cy="decrement-icon"
             src="@/assets/svg/icon-minus.svg"
             alt="Minus icon"
             title="Minus icon"
@@ -10,10 +11,11 @@
         >
 
         <!-- Counter value -->
-        <div class="quantity-counter__value">{{ counter }}</div>
+        <div class="quantity-counter__value" data-cy="counter-value">{{ counter }}</div>
 
         <!-- Plus icon -->
         <img class="quantity-counter__icon"
+            data-cy="increment-icon"
             src="@/assets/svg/icon-plus.svg"
             alt="Plus icon"
             title="Plus icon"

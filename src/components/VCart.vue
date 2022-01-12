@@ -1,20 +1,22 @@
 <template>
     <!-- Cart component -->
-    <div class="cart">
+    <div class="cart" data-cy="cart">
         <!-- Top cart banner -->
         <div class="cart__banner">Cart</div>
     
         <!-- Cart content -->
         <div class="cart__content"
+            data-cy="cart-content"
             :class="isCartEmpty ? '' : 'cart__content--not-empty'"
         >
-            <div class="cart__empty-message" v-if="isCartEmpty">
+            <div class="cart__empty-message" v-if="isCartEmpty" data-cy="empty-message">
                 Your cart is empty
             </div>
 
             <template v-else>
                 <!-- Single item in cart -->
                 <div class="cart__item"
+                    data-cy="cart-item"
                     v-for="item in items"
                     :key="item.product.id"
                 >
@@ -32,6 +34,7 @@
                     
                     <!-- Item delete icon -->
                     <img class="cart__item-delete"
+                        data-cy="item-delete-icon"
                         src="@/assets/svg/icon-delete.svg"
                         alt="Delete icon"
                         title="Delete icon"

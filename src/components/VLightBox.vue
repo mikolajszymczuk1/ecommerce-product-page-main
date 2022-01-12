@@ -1,8 +1,8 @@
 <template>
     <!-- Light box component -->
-    <div class="lightbox" :class="isActive ? 'lightbox--active' : ''">
+    <div class="lightbox" :class="isActive ? 'lightbox--active' : ''" data-cy="lightbox">
         <div class="lightbox__wrapper">
-            <svg class="lightbox__close-icon" @click="closeLightBox" width="14" height="15" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill-rule="evenodd"/></svg>
+            <svg class="lightbox__close-icon" data-cy="lightbox-close-icon" @click="closeLightBox" width="14" height="15" viewBox="0 0 14 15" xmlns="http://www.w3.org/2000/svg"><path d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill-rule="evenodd"/></svg>
             
             <!-- Main lightbox image -->
             <div class="lightbox__main-image-container">
@@ -12,6 +12,7 @@
 
                 <!-- Left arrow icon -->
                 <div class="lightbox__arrow-icon-wrapper lightbox__arrow-icon-wrapper--left"
+                    data-cy="lightbox-arrow-left"
                     @click="previousImage(images)"
                 >
                     <img class="lightbox__arrow-icon" 
@@ -23,6 +24,7 @@
 
                 <!-- Right arrow icon -->
                 <div class="lightbox__arrow-icon-wrapper lightbox__arrow-icon-wrapper--right"
+                    data-cy="lightbox-arrow-right"
                     @click="nextImage(images)"
                 >
                     <img class="lightbox__arrow-icon"
@@ -36,6 +38,7 @@
             <!-- Thumbnails container -->
             <div class="lightbox__thumbnails-container">
                 <div class="lightbox__thumbnail"
+                    data-cy="lightbox-thumbnail"
                     v-for="(t, index) in thumbnails"
                     :key="t"
                     :class="(index === current) ? 'lightbox__thumbnail--active' : ''"

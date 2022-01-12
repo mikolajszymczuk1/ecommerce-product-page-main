@@ -4,6 +4,7 @@
         <div class="navigation-bar__wrapper">
             <!-- Menu icon -->
             <img class="navigation-bar__menu-icon" src="@/assets/svg/icon-menu.svg" alt="Menu icon" title="Menu icon"
+                data-cy="menu-icon"
                 @click="toggleMenu"
             >
             
@@ -15,11 +16,12 @@
                 :class="isActive ? 'navigation-bar__side-menu-container--active' : ''"
             >
                 <!-- Container with all navigation links -->
-                <div class="navigation-bar__links-wrapper"
+                <div class="navigation-bar__links-wrapper" data-cy="navigation-links-wrapper"
                     :class="isActive ? 'navigation-bar__links-wrapper--active' : ''"
                 >
                     <!-- Close icon -->
                     <img class="navigation-bar__close-icon" src="@/assets/svg/icon-close.svg" alt="Close icon" title="Close icon"
+                        data-cy="close-icon"
                         @click="toggleMenu"
                     >
                     
@@ -35,6 +37,7 @@
 
         <div class="navigation-bar__user-icons">
             <div class="navigation-bar__cart-icon-wrapper"
+                data-cy="cart-icon-wrapper"
                 @click="toggleCart"
             >
                 <!-- Cart icon -->
@@ -42,6 +45,7 @@
 
                 <!-- Cart items counter -->
                 <div class="navigation-bar__items-counter"
+                    data-cy="items-counter"
                     v-if="quantityOfItems != 0" 
                 >
                     {{ quantityOfItems }}

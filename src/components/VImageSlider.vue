@@ -11,6 +11,7 @@
         <!-- Main slider image container -->
         <div class="image-slider__main-image-container">
             <div class="image-slider__main-image"
+                data-cy="main-slider-image"
                 :style="{ backgroundImage: `url(${ getCurrentImage(images) })` }"
                 @click="toggleLightBox"
             ></div>
@@ -41,6 +42,7 @@
         <!-- Thumbnails container -->
         <div class="image-slider__thumbnails-container">
             <div class="image-slider__thumbnail"
+                data-cy=image-slider-thumbnail
                 v-for="(t, index) in thumbnails"
                 :key="t"
                 :class="(index === current) ? 'image-slider__thumbnail--active' : ''"
