@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution]()
-- Live Site URL: [Live]()
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/i-puted-my-heart-in-it-JdN81gxbA)
+- Live Site URL: [Live](https://mystifying-pare-92e97c.netlify.app/)
 
 ## My process
 
